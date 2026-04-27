@@ -7,16 +7,15 @@
  */
 function sumValues(num1, num2, add) {
     if (add) {
-        const result = 0;
-
         result = num1 + num2;
 
         return result;
     }
     else {
-        return !add;
+        return add;
     }
 }
+//console.log(sumValues(1, 2, true));
 
 /**
  * 
@@ -29,10 +28,13 @@ function discountPrices(prices, discount) {
     const length = prices.length;
     let discountedPrice = 0
     for(let i = 0; i < length; i++) {
-        discountedPrice += prices[i] * (1 - discount);
+        discountedPrice = prices[i] * (1 - discount);
         discounted.push(discountedPrice);
     }
 
+    if (length === 0) {
+        return false;
+    }
     return discounted;
 }
 
