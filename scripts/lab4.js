@@ -6,7 +6,7 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
-    if (add) {
+    if (add && typeof num1 === 'number' && typeof num2 === 'number') {
         result = num1 + num2;
 
         return result;
@@ -26,14 +26,13 @@ function sumValues(num1, num2, add) {
 function discountPrices(prices, discount) {
     const discounted = []
     const length = prices.length;
+    if (length === 0 || typeof discount !== 'number' || typeof prices !== 'object') {
+        return false;
+    }
     let discountedPrice = 0
     for(let i = 0; i < length; i++) {
         discountedPrice = prices[i] * (1 - discount);
         discounted.push(discountedPrice);
-    }
-
-    if (length === 0) {
-        return false;
     }
     return discounted;
 }
